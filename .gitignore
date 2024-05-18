@@ -274,3 +274,9 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# Vim
+Session.vim
+
+# CV PDF
+*.pdf
