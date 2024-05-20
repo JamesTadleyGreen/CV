@@ -15,13 +15,60 @@
 \moderncvcolor{blue} 
 %\moderncvicons{awsome}                              % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% Loading bar
+\usepackage{tikz}
+\definecolor{frontColor}{rgb}{0.22,0.45,0.70}% light blue
+\definecolor{backColor}{RGB}{200,200,200}% grey
+\newcommand{\gradelong}[6]{%
+    \pgfmathtruncatemacro\floored{#1}%
+    \pgfmathsetmacro\diff{#1-\floored}%
+    \newdimen\diffDim%
+    \diffDim = \diff pt%
+    \newdimen\numPointsDim
+    \numPointsDim = #1 pt
+    \newdimen\maxPointsDim%
+    \maxPointsDim = #2 pt%
+    \begin{tikzpicture}
+        \foreach \x in {1, ..., #2}{
+            \ifnum \x > \floored \relax%
+                \def\fillCol{#6}%
+            \else%
+                \def\fillCol{#5}%
+            \fi%
+            \fill[\fillCol] (#3*\x, 0) circle (#4);
+        }%
+        \ifdim \diffDim > 0 pt \relax%
+            \ifdim \numPointsDim > \maxPointsDim \relax%
+            \else%
+                \pgfmathsetmacro\pos{#3*(\floored+1)}%
+                \begin{scope}[xshift=\pos]
+                    \clip (-#4,-#4) rectangle ++(#4*2*\diff,#4*2);
+                    \fill[#5] (0, 0) circle (#4);
+                \end{scope}
+            \fi%
+        \else%
+        \fi%
+    \end{tikzpicture}%
+}
+
+\newcommand{\grade}[1]{%
+    \gradelong%
+    {#1}% grade as floating point value
+    {5}% max number of points
+    {9pt}% spacing between points
+    {3pt}% radius of point
+    {frontColor}% foreground color
+    {backColor}% background color
+}
+
 
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
 
 % adjust the page margins
-\usepackage[scale=0.90, top=0.6cm]{geometry}
+\usepackage[scale=0.90]{geometry}
 
 % personal data
 \name{James}{Green}
@@ -42,7 +89,7 @@
 \cventry{2015 -- 2018}{Mathematics}{Royal Holloway, University of London}{London}{\textit{(B.Sc.)} first class honours}
 {Awarded the Wynne Roberts prize for outstanding academic achievement in both 1st and 2nd undergraduate year\newline{}
 	Awarded the Margaret Jackson prize for Pure Mathematics for best student in 2nd undergraduate year exam\newline{}
-	Awarded the 2018 IMA Graduate prize for outstanding performance on their mathematical qualification}  % arguments 3 to 6 can be left empty
+	Awarded the 2018 IMA Graduate prize for outstanding performance
 
 \cventry{2013 -- 2015}{A-levels}{Tiffin School}{Kingston}{\textit{Further Mathematics, Mathematics, Physics, Economics}}{}
 
@@ -50,10 +97,10 @@
 \cventry{2021 -- Present}{Data Lead}{SMP Group PLC}{2 Swan Road, London}{Technology Development Team}
 {
 	\cvlistitem{
-		\textbf{Led Internal Automation Project:} Spearheaded and implemented a comprehensive internal automation initiative, resulting in significant labor savings, enhanced throughput, and increased profitability. Collaborated closely with the Managing Director, C-suite executives, and other key stakeholders to ensure timely and effective project delivery.
+		\textbf{Led Internal Automation Project:} Spearheaded and implemented a comprehensive internal automation initiative, resulting in significant labour savings, enhanced throughput, and increased profitability. Collaborated closely with the Managing Director, C-suite executives, and other key stakeholders to ensure timely and effective project delivery.
 	}
 	\cvlistitem{
-		\textbf{Business Metrics Analysis and Reporting:} Conducted in-depth analysis of key business metrics using data from both the aforementioned automation project and existing, traditional methods. Developed multiple reports and interactive dashboards at all organizational levels. Created and deployed a scheduling system to replace printed job cards, enabling straightforward forward work projections for department heads.
+		\textbf{Business Metrics Analysis and Reporting:} Conducted in-depth analysis of key business metrics using data from both the aforementioned automation project and existing, traditional methods. Developed multiple reports and interactive dashboards at all organisational levels. Created and deployed a scheduling system to replace printed job cards, enabling straightforward forward work projections for department heads.
 	}
 	\cvlistitem{
 		\textbf{Machine Learning and Statistical Analysis:} Applied unsupervised machine learning techniques and Bayesian Inference to establish automatic feedback loops, continuously updating print, pack, and laydown time expectations. This optimisation allowed for efficient temporary labour scheduling.
@@ -70,20 +117,20 @@
 	\cvlistitem{
 		\textbf{Investment Team}
 		\begin{itemize}
-			\item Developed and built out an Asset-Liability modeling solution in PowerBi, allowing a pension scheme to predict impacts such as interest rate shocks, long-term asset return rates, and scheme member demographic changes. Utilising stochastic modeling to offer 1/200 shock scenario generation.
+			\item Developed and built out an Asset-Liability modelling solution in PowerBi, allowing a pension scheme to predict impacts such as interest rate shocks, long-term asset return rates, and scheme member demographic changes. Utilising stochastic modelling to offer 1/200 shock scenario generation.
 		\end{itemize}
 	}
 	\cvlistitem{
 		\textbf{Pensions Team}
 		\begin{itemize}
-			\item Worked on pension buyouts for clients, was responsible for customised actuarial models, that accurately captured the financial impact of pension buyouts on pension scheme members. These calculations were instrumental in several £10m+ deals.
-			\item Heavily involved in the development of technology across the pensions team, this included setting up a mail-merge process that saved c.10k per member options exercise.
+			\item Worked on pension buyouts for clients and was responsible for customised actuarial models, that accurately captured the financial impact of pension buyouts on pension scheme members. These calculations were instrumental in several £10m+ deals.
+			\item Heavily involved in the development of technology across the pensions team. this included setting up a mail-merge process that saved c.£10k per member options exercise.
 		\end{itemize}
 	}
 	\cvlistitem{
 		\textbf{Workforce Strategy \& Culture}
 		\begin{itemize}
-			\item Helped companies navigate complex workforce planning and mobility strategies. Specifically, assiting clients in determining the optimal approach to expanding their workforce, whether through upskilling existing workers or hiring global talent.
+			\item Helped companies navigate complex workforce planning and mobility strategies. Specifically, assisting clients in determining the optimal approach to expanding their workforce, whether through upskilling existing workers or hiring global talent.
 			\item Created bespoke dashboards; webscraping relevant data such as company reports, analyised an external provider of employee reviews for sentiment. Allowing for future planning of employee talent growth.
 		\end{itemize}
 	}
@@ -91,18 +138,27 @@
 
 \cventry{2017}{Data Analyst}{Insure the Box}{88 Leadenhall Street, London}{Acturarial Team}{}
 
-\begin{minipage}{0.4\textwidth}
-	\section{Qualifications}
+\begin{minipage}[t]{0.55\textwidth}
+	\section{Proficiencies}
+	\setlength{\tabcolsep}{1em}
+	\begin{tabular}{lr}
+		\textbf{Python} &\grade{4.5}\\
+		\textbf{Frameworks:} Flask, Celery, Redis &\grade{4}\\
+		\textbf{Databases:} SQL, PostgreSQL, SQLAlchemy &\grade{4}\\
+		\textbf{Dashboarding:} Dash, Plotly, PowerBi &\grade{3.7}\\
+		\textbf{Haskell:} \textit{(Self-studying)} &\grade{1.5}\\
+	\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.4\textwidth}
+	\section{Other Qualifications}
 	\cvitem{Institute of Mathematics \& its Applications (IMA)}{Associate Member (AMIMA)}
 	\cvitem{Grade 5 in Music Theory}{Grade 2 in Piano}
 	\cvitem{BSAC Ocean Diver}{Over 100 pool dives, and 40 open water dives}
 	\cvitem{Skiing}{ESF Bronze award}
 \end{minipage}
-\hfill
-\begin{minipage}{0.4\textwidth}
-	\section{Proficiencies}
-\end{minipage}
 \vspace*{0.2cm}
 \hline
+\vspace*{0.2cm}
 \begin{itemize}\item Character references available on request\end{itemize}
 \end{document}
