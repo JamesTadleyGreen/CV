@@ -19,106 +19,90 @@
 
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
-%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 
 % adjust the page margins
-\usepackage[scale=0.82]{geometry}
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\usepackage[scale=0.90, top=0.6cm]{geometry}
 
 % personal data
 \name{James}{Green}
 \email{JamesTadleyGreen@outlook.com}
+\renewcommand*\homepagesymbol{\faLaptop~}
 \homepage{JamesTadleyGreen.github.io} 
 \social[linkedin][linkedin.com/in/james-tadley-green]{www.linkedin.com/in/james-tadley-green} 
-\newcommand*\instagramsocialsymbol{{\faInstagram~}}
-\renewcommand*\homepagesymbol{\faLaptop~}
-\social[instagram][instagram.com/ugmathematics]{www.instagram.com/UGMathematics}
- 
-                      % optional, remove / comment the line if not wanted
-% \extrainfo{hi}                % optional, remove / comment the line if not wanted
-%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
 
-% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
-%\makeatletter
-%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-%\makeatother
-%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
-
-% bibliography with mutiple entries
-%\usepackage{multibib}
-%\newcites{book,misc}{{Books},{Others}}
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
 \begin{document}
 \makecvtitle
-
+\vspace*{-1cm}
 \section{Education}
 \cventry{2018 -- 2019}{Mathematics}{University of Cambridge}{Cambridge}{\textit{(MASt)}}{}
 
-\cventry{2015 -- 2018}{Mathematics}{Royal Holloway, University of London}{London}{\textit{(BSc)} first class honours}
+\cventry{2015 -- 2018}{Mathematics}{Royal Holloway, University of London}{London}{\textit{(B.Sc.)} first class honours}
 {Awarded the Wynne Roberts prize for outstanding academic achievement in both 1st and 2nd undergraduate year\newline{}
-Awarded the Margaret Jackson prize for Pure Mathematics for best student in 2nd undergraduate year exam\newline{}
-Awarded the 2018 IMA Graduate prize for outstanding performance on their mathematical qualification}  % arguments 3 to 6 can be left empty
+	Awarded the Margaret Jackson prize for Pure Mathematics for best student in 2nd undergraduate year exam\newline{}
+	Awarded the 2018 IMA Graduate prize for outstanding performance on their mathematical qualification}  % arguments 3 to 6 can be left empty
 
 \cventry{2013 -- 2015}{A-levels}{Tiffin School}{Kingston}{\textit{Further Mathematics, Mathematics, Physics, Economics}}{}
 
 \section{Experience}
-\cventry{2021 -- Present}{Data Lead}{SMP Group PLC}{2 Swan Road, London}{Technology Development Team}{}
+\cventry{2021 -- Present}{Data Lead}{SMP Group PLC}{2 Swan Road, London}{Technology Development Team}
+{
+	\cvlistitem{
+		\textbf{Led Internal Automation Project:} Spearheaded and implemented a comprehensive internal automation initiative, resulting in significant labor savings, enhanced throughput, and increased profitability. Collaborated closely with the Managing Director, C-suite executives, and other key stakeholders to ensure timely and effective project delivery.
+	}
+	\cvlistitem{
+		\textbf{Business Metrics Analysis and Reporting:} Conducted in-depth analysis of key business metrics using data from both the aforementioned automation project and existing, traditional methods. Developed multiple reports and interactive dashboards at all organizational levels. Created and deployed a scheduling system to replace printed job cards, enabling straightforward forward work projections for department heads.
+	}
+	\cvlistitem{
+		\textbf{Machine Learning and Statistical Analysis:} Applied unsupervised machine learning techniques and Bayesian Inference to establish automatic feedback loops, continuously updating print, pack, and laydown time expectations. This optimisation allowed for efficient temporary labour scheduling.
+	}
+	\cvlistitem{
+		\textbf{CI/CD Process Development:} Designed and maintained a robust Continuous Integration/Continuous Deployment (CI/CD) pipeline using GitHub Actions. This facilitated automated code deployment and testing on internal servers, improving development workflow and reducing downtime.
+	}
+	\cvlistitem{
+		\textbf{System Integration and Training:} Successfully onboarded multiple external systems, enhancing overall operational capacity. Led internal training sessions to upskill staff, ensuring seamless adoption and sustained competency in new technologies and processes.
+	}
+}
 
-\cventry{2019 -- 2021}{Actuarial Pensions}{PricewaterhouseCoopers}{7 More London Riverside, London}{Actuarial Pensions Team}{}
+\cventry{2019 -- 2021}{Actuarial Pensions}{PricewaterhouseCoopers}{7 More London Riverside, London}{Actuarial Pensions Team}{
+	\cvlistitem{
+		\textbf{Investment Team}
+		\begin{itemize}
+			\item Developed and built out an Asset-Liability modeling solution in PowerBi, allowing a pension scheme to predict impacts such as interest rate shocks, long-term asset return rates, and scheme member demographic changes. Utilising stochastic modeling to offer 1/200 shock scenario generation.
+		\end{itemize}
+	}
+	\cvlistitem{
+		\textbf{Pensions Team}
+		\begin{itemize}
+			\item Worked on pension buyouts for clients, was responsible for customised actuarial models, that accurately captured the financial impact of pension buyouts on pension scheme members. These calculations were instrumental in several £10m+ deals.
+			\item Heavily involved in the development of technology across the pensions team, this included setting up a mail-merge process that saved c.10k per member options exercise.
+		\end{itemize}
+	}
+	\cvlistitem{
+		\textbf{Workforce Strategy \& Culture}
+		\begin{itemize}
+			\item Helped companies navigate complex workforce planning and mobility strategies. Specifically, assiting clients in determining the optimal approach to expanding their workforce, whether through upskilling existing workers or hiring global talent.
+			\item Created bespoke dashboards; webscraping relevant data such as company reports, analyised an external provider of employee reviews for sentiment. Allowing for future planning of employee talent growth.
+		\end{itemize}
+	}
+}
 
-\cventry{June -- September 2017}{Data Analyst}{Insure the Box}{88 Leadenhall Street, London}{Acturarial Team}{}
+\cventry{2017}{Data Analyst}{Insure the Box}{88 Leadenhall Street, London}{Acturarial Team}{}
 
-\section{Extracurricular Qualifications}
-\cventry{}{Grade 5 in Music Theory}{Music}{}{\textit{Grade 2 in Piano}}{}
-
-\cventry{}{BSAC Ocean Diver}{Scuba Diving}{}{\textit{currently studying for Sports Diver}}{Have over 100 pool dives and 15 open water dives completed.}
-
-\cventry{}{ESF Bronze award}{Skiing}{}{\textit{and all lower awards}}{}
-
-\cventry{}{Achieved gold from years 7-11}{Maths Challenge}{}{\textit{and was top of my school for each year}}{}
-%\cvitem{supervisors}{Supervisors}
-%\cvitem{description}{Short thesis abstract}
-%\section{Professional}
-%\cvitem{Institute of Mathematics \& its Applications (IMA)}{Student Member}
-
-%\section{Extra 1}
-%\cvlistitem{Item 1}
-%\cvlistitem{Item 2}
-%\cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
-
-%\section{Extra 2}
-%\cvlistdoubleitem{Item 1}{Item 4}
-%\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
-%\cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
-
-\section{Referees}
-\begin{cvcolumns}
-  \cvcolumn{Character}{\begin{itemize}\item Character references available on request\end{itemize}}
-\end{cvcolumns}
-
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-\nocite{*}
-\bibliographystyle{plain}
-\bibliography{publications}                        % 'publications' is the name of a BibTeX file
-
-% Publications from a BibTeX file using the multibib package
-%\section{Publications}
-%\nocitebook{book1,book2}
-%\bibliographystylebook{plain}
-%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
-%\nocitemisc{misc1,misc2,misc3}
-%\bibliographystylemisc{plain}
-%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
-
-\clearpage
-
+\begin{minipage}{0.4\textwidth}
+	\section{Qualifications}
+	\cvitem{Institute of Mathematics \& its Applications (IMA)}{Associate Member (AMIMA)}
+	\cvitem{Grade 5 in Music Theory}{Grade 2 in Piano}
+	\cvitem{BSAC Ocean Diver}{Over 100 pool dives, and 40 open water dives}
+	\cvitem{Skiing}{ESF Bronze award}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\textwidth}
+	\section{Proficiencies}
+\end{minipage}
+\vspace*{0.2cm}
+\hline
+\begin{itemize}\item Character references available on request\end{itemize}
 \end{document}
-
-
-%% end of file `template.tex'.
